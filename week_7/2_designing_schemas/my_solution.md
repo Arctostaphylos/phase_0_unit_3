@@ -24,6 +24,11 @@
 Description of what you're modeling: 
 
 <!-- display your one-to-one image inline here -->
+<img src="../imgs/passports.png">
 <!-- display your many-to-many image inline here -->
-
+<img src="classes_schema.png">
 ## Release 5: Reflection
+
+I've worked with databases before, and designed some simple databases, but I don't
+remember learning about the different patterns. I'm curious about how the relationship
+between primary and foriegn keys affects database queries.

@@ -1,24 +1,24 @@
 # U3.W7: Designing Schemas
 
 
-#### I worked on this challenge [by myself, with: ]
+#### I worked on this challenge [by myself]
 
 
 ## Release 0: Student Roster Schema
 <!-- display your image inline here -->
-
+<img src="../imgs/students.png">
 
 ## Release 1: One to Many Schema
 <!-- display your image inline here -->
-
+<img src="../imgs/one_to_many.png">
 
 ## Release 2: One to One Schema
 <!-- display your image inline here -->
-
+<img src="../imgs/one_to_one.png">
 
 ## Release 3: Many to Many Schema
 <!-- display your image inline here -->
-
+<img src="../imgs/many_to_many.png">
 
 ## Release 4: Design your own Schema
 Description of what you're modeling: 

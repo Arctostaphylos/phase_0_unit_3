@@ -1,6 +1,6 @@
 # U3.W7: BONUS Using the SQLite Gem
 
-# I worked on this challenge [by myself, with:]
+# I worked on this challenge [with: Andrew Koines]
 
 require 'sqlite3'
 
@@ -16,13 +16,20 @@ end
 
 def print_longest_serving_reps(minimum_years)  #sorry guys, oracle needs me, i didn't finish this!
   puts "LONGEST SERVING REPRESENTATIVES"
-  puts $db.execute("SELECT name FROM congress_members WHERE years_in_congress > #{minimum_years}")
+  longest_reps = $db.execute("SELECT name, years_in_congress FROM congress_members WHERE years_in_congress > #{minimum_years}")
+  longest_reps.each {|rep| puts "#{rep[0]} - #{rep[1]} years"}
 end
 
-def print_lowest_grade_level_speakers
+def print_lowest_grade_level_speakers(grade)
   puts "LOWEST GRADE LEVEL SPEAKERS (less than < 8th grade)"
+  puts $db.execute("SELECT name FROM congress_members WHERE grade_current < #{grade}")
 end
 
+def print_selected_reps
+  puts "NJ, NY, ME, FL, AK REPRESENTATIVES"
+  sel_reps = $db.execute("SELECT name, location FROM congress_members WHERE location IN ('NJ', 'NY', 'ME', 'FL', 'AK') ORDER BY location")
+  sel_reps.each { |rep| puts "#{rep[0]} - #{rep[1]}" }
+end
 def print_separator
   puts 
   puts "------------------------------------------------------------------------------"
@@ -39,9 +46,9 @@ print_longest_serving_reps(35)
 # output should look like:  Rep. C. W. Bill Young - 41 years
 
 print_separator
-print_lowest_grade_level_speakers 
+print_lowest_grade_level_speakers(9) 
 # TODO - Need to be able to pass the grade level as an argument, look in schema for "grade_current" column
-
+print_selected_reps
 # TODO - Make a method to print the following states representatives as well:
 # (New Jersey, New York, Maine, Florida, and Alaska)
 

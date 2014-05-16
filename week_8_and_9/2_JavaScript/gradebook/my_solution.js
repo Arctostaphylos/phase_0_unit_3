@@ -43,6 +43,9 @@ gradebook.addScore = function(student, score){
   gradebook[student].testScores.push(score); //student has to be in brackets because it's a string
 }
 
+gradebook.getAverage = function(student){
+  return average(gradebook[student].testScores)
+}
 
 // __________________________________________
 // Refactored Solution
@@ -56,8 +59,10 @@ gradebook.addScore = function(student, score){
 
 // __________________________________________
 // Reflect
-
-
+// I feel like I forgot all the JS I ever knew in a couple of weeks, but with the 
+// help of my notes I was able to get through this. The hard part for me is keeping
+// track of how the properties of an object are nested. It also never occured to me
+// that a function could be a property of an object. 
 
 
 

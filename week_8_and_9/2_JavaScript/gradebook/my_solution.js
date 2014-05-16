@@ -34,7 +34,10 @@ var average = function(array){
   return sum/array.length;
 }
 
-
+var gradebook = new Object();
+for (var i = 0; i<students.length; i++){
+  gradebook[students[i]] = new Object;
+}
 
 
 // __________________________________________

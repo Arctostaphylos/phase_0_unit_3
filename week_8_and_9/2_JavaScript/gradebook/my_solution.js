@@ -26,7 +26,13 @@ var scores = [ [80, 70, 70, 100],
 // __________________________________________
 // Write your code below.
 
-
+var average = function(array){
+  var sum = 0;
+  for (var i = 0; i<array.length; i++){
+    var sum = sum + array[i];
+  }
+  return sum/array.length;
+}
 
 
 

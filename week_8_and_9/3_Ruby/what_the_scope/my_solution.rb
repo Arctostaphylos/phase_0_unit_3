@@ -1,7 +1,7 @@
 # U3.W8-9: What the Scope
 
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
 
 # 1. What are the problems in the error messages?
 
@@ -35,7 +35,8 @@ end
 
 
 # 1. DRIVER TESTS/ASSERT STATEMENTS GO BELOW THIS LINE
-
+test = Person.new
+test.do_stuff
 
 
 

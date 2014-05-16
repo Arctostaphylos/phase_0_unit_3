@@ -35,11 +35,10 @@
 # Your fabulous code goes here....
 
 class Item
-  attr_accessor :purchased, :item_name
+  attr_accessor  :item_name, :quantity
   def initialize(item_name, quantity=1)
     @item_name = item_name
     @quantity = quantity
-    @purchased = false
   end
   def change_quantity(new_quantity)
     @quantity = new_quantity
@@ -47,7 +46,7 @@ class Item
 end
 
 class Grocery_list
-	attr_reader :list
+  attr_reader :list
   def initialize
     @list = []
   end
@@ -57,48 +56,76 @@ class Grocery_list
   end
   
   def remove(item_to_remove)
-    @list.delete(item_to_remove)
-  end
-  
-  def check_off(item)
-    item.purchased = true
-    puts "#{item.item_name} is checked off"
+    @list.delete_if{|x| x[0].item_name == item_to_remove}
+    puts @list
   end
 
-  def basket_contents
-   @list.each{|x| puts "#{x[0].item_name} is in the basket" if x[0].purchased}
-  end
   def need_to_purchase
-    @list.select{|item| item[0].purchased == false}
+    puts "Nothing on the list" if @list.empty?
+    @list.select{|item| puts "You need to buy #{item[0].quantity} of #{item[0].item_name}"}
+    end
+
+class Controller
+  def initialize
+   @list = Grocery_list.new
   end
+  def control
+    status = true
+      while status
+       puts "What do you want to do (add, remove, list, quit)?"
+       instruction = gets.chomp
+       #unless instruction == "quit"
+        case instruction
+          when "add"
+            puts "What do you want to add?"
+            added_item = gets.chomp
+            @list.add(Item.new(added_item))
+            puts "You've added #{added_item}"
+          when "remove"
+            puts "What do you want to remove?"
+            removed_item = gets.chomp
+            @list.remove(removed_item)
+            puts "You've removed #{removed_item} from the list"
+          when "list"
+            @list.need_to_purchase
+          else
+            status = false
+          end
+        end
+    end    
+        
+    
 end
+  
 
 
 
+test = Controller.new
+test.control
 
 
 # DRIVER CODE GOES HERE. 
 
-broccoli = Item.new("broccoli", 2)
-tofu = Item.new("tofu")
-salsa = Item.new("salsa")
+#broccoli = Item.new("broccoli", 2)
+#tofu = Item.new("tofu")
+#salsa = Item.new("salsa")
 
-list1 = Grocery_list.new
-list1.add(broccoli)
-list1.add(tofu)
-list1.add(salsa)
+#list1 = Grocery_list.new
+#list1.add(broccoli)
+#list1.add(tofu)
+#list1.add(salsa)
 
-puts broccoli.purchased
+#puts broccoli.purchased
 
-list1.check_off(broccoli)
+#list1.check_off(broccoli)
 
-puts broccoli.purchased
-p list1.need_to_purchase
-list1.basket_contents
-
-list1.check_off(salsa)
-p list1.need_to_purchase
-p list1.basket_contents
+#puts broccoli.purchased
+#p list1.need_to_purchase
+#list1.basket_contents
+#
+#list1.check_off(salsa)
+#p list1.need_to_purchase
+#p list1.basket_contents
 
  
  

@@ -74,3 +74,6 @@ print_selected_reps
 #   > #{minimum_years}")`.  Try to explain this as clearly as possible for 
 # your fellow students.  
 # If you're having trouble, find someone to pair on this explanation with you.
+# 
+# $db is a global variable that is holding access to the database via SQLite3. The execute
+# method is a way of passing the SQL query as a parameter to SQLite3.

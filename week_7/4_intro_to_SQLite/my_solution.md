@@ -56,6 +56,14 @@ sqlite>
 
 ## Release 4: Change a value
 <!-- paste your terminal output here -->
+sqlite> UPDATE users SET nickname = 'Ninja Coder', first_name = 'Kimmy' WHERE id = 1;
+sqlite> UPDATE users SET updated_at = DATETIME('now') WHERE id = 1;
+sqlite> select * from users;
+id          first_name  last_name   email                  created_at           updated_at           nickname   
+----------  ----------  ----------  ---------------------  -------------------  -------------------  -----------
+1           Kimmy       Lin         kimmy@devbootcamp.com  2014-05-14 20:00:28  2014-05-14 20:35:59  Ninja Coder
+2           Kris        Shanks      shanks@sonic.net       2014-05-14 20:07:02  2014-05-14 20:07:02             
+3           kimmey      Lin         kimmy2@devbootcamp.co  2014-05-14 20:17:43  2014-05-14 20:17:43            
 
 ## Release 5: Reflect
 <!-- Add your reflection here -->

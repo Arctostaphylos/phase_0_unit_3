@@ -36,7 +36,8 @@ var average = function(array){
 
 var gradebook = new Object();
 for (var i = 0; i<students.length; i++){
-  gradebook[students[i]] = new Object;
+  gradebook[students[i]] = {testScores: scores[i]};
+
 }
 
 

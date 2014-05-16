@@ -37,7 +37,10 @@ var average = function(array){
 var gradebook = new Object();
 for (var i = 0; i<students.length; i++){
   gradebook[students[i]] = {testScores: scores[i]};
+}
 
+gradebook.addScore = function(student, score){
+  gradebook[student].testScores.push(score); //student has to be in brackets because it's a string
 }
 
 

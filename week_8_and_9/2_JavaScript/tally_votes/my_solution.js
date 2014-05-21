@@ -1,6 +1,6 @@
 // U3.W8-9: Gradebook from Names and Scores
 
-// I worked on this challenge [by myself, with:]
+// I worked on this challenge [by myself]
 
 // These are the votes cast by each student. Do not alter these objects here.
 var votes = {
@@ -64,28 +64,113 @@ var officers = {
 }
 
 // Pseudocode
+// for/in loop going through votes. At each iteration, update the property of voteCount.president to be 
+// the value associated with votes.president and the value of voteCount.president to increment by one. Do the 
+// same for each position.
 
+//for/in loop going through voteCount. Set the winner to the first student in the object, and then compare subsequent
+// students to the first. If any student has more votes, set that student to be the winner, and continue.
 
 // __________________________________________
 // Initial Solution
 
 
+for (var key in votes){
+ 
+  if (voteCount.president[votes[key].president] >= 1){
+    voteCount.president[votes[key].president] += 1
+  }else{
+  voteCount.president[votes[key].president] = 1;
+  }
 
+  if (voteCount.vicePresident[votes[key].vicePresident] >= 1){
+    voteCount.vicePresident[votes[key].vicePresident] += 1
+  }else{
+    voteCount.vicePresident[votes[key].vicePresident] = 1;
+  }
+  
+  if (voteCount.secretary[votes[key].secretary] >= 1){
+    voteCount.secretary[votes[key].secretary] +=1;
+  }else{
+    voteCount.secretary[votes[key].secretary] = 1
+  }
 
+  if (voteCount.treasurer[votes[key].treasurer] >= 1){
+    voteCount.treasurer[votes[key].treasurer] +=1;
+  }else{
+    voteCount.treasurer[votes[key].treasurer] = 1;
+  }
+  
+}
+
+voteCount.president[winner] = 0
+for (var key in voteCount.president){
+  if (voteCount.president[key] > voteCount.president[winner]){
+    winner = key
+  }
+}
+officers.president = winner
+
+voteCount.vicePresident[winner] = 0
+for (var key in voteCount.vicePresident){
+  if (voteCount.vicePresident[key] > voteCount.vicePresident[winner]){
+    winner = key
+  }
+}
+officers.vicePresident = winner
+
+voteCount.secretary[winner] = 0
+for (var key in voteCount.secretary){
+  if (voteCount.secretary[key] > voteCount.secretary[winner]){
+    winner = key
+  }
+}
+officers.secretary = winner
+
+voteCount.treasurer[winner] = 0
+for (var key in voteCount.treasurer){
+  if (voteCount.treasurer[key] > voteCount.treasurer[winner]){
+    winner = key
+  }
+}
+ officers.treasurer = winner
 
 
 
 // __________________________________________
 // Refactored Solution
+for (var office in voteCount){
+  for (var key in votes){
+ 
+  if (voteCount[office][votes[key][office]] >= 1){
+    voteCount[office][votes[key][office]] += 1
+  }else{
+  voteCount[office][votes[key][office]] = 1;
+  }
 
+}
 
-
+  
+}
+for (var office in voteCount){
+  voteCount[office][winner] = 0
+  for (var key in voteCount[office]){
+    if (voteCount[office][key] > voteCount[office][winner]){
+      winner = key
+    }
+  }
+officers[office] = winner
+}
 
 
 
 // __________________________________________
 // Reflection
-
+// My initial solution worked, but wasn't very DRY. It took me a while to work out how to 
+// access the different nested objects, but the key thing I realized is that you have to use
+// bracket notation when the property you're looping through is a string. Once I was able to
+// get some code that passed all the tests, it was obvious that I had a lot of repetition that
+// could be cleaned up by nesting my for loops inside another for loop.
 
 
 

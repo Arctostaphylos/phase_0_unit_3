@@ -7,6 +7,8 @@ $('body').css({'background-color': 'pink'})
  
 //RELEASE 1:
   //Add code here to select elements of the DOM 
+  var bodyElement = $('body')
+  var header = $('h1')
  
  
 //RELEASE 2: 

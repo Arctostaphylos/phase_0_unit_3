@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Objects Cheat Sheet</title>
+	<link rel="stylesheet" type="text/css" href="cheatsheet.css">
+
+</head>
+<body>
+<H1>Javascript Objects</H1>
+
+<h2>Creating Objects using literal notation</h2>
+<code>
+var myObject = {<br>
+    property1: value1,<br>
+    property2: value2<br>
+  };
+ </code> 
+<h2>Creating objects using constructor syntax</h2>  
+<code>var myObject = new Object();<br>
+myObject["property1"] = value1; // property can be either string or variable name<br>
+myObject.property2 = value2; // has to be a variable name. NO STRINGS<br>
+  </code>
+  
+
+<h2>Adding functions to objects using constructor syntax</h2>
+<code>var car = {<br>
+  color: "red",<br>
+  year: 2016,<br>
+  make: "Toyota",<br>
+  model: "Corola"<br>
+};<br>
+<br>
+car.showColor = function(){<br>
+  return this.color;<br>
+};
+</code>
+
+<h2>Iterate through an object</h2>
+<code>for (property in car){<br>
+    if (typeof car[property] != 'function'){ //testing whether the property is a function<br>
+        console.log("The car's " + property + " is " + car[property]);<br>
+    };<br>
+};
+</code>
+<h2>Nested objects - create an object inside car</h2>
+<code>car.gasTank = { <br>
+    capacity: 20,<br>
+    contents: 10,<br>
+    fillUp: function(){<br>
+        this.contents = this.capacity;<br>
+    }<br>
+};<br>
+<br>
+car.gasTank.contents<br>
+car.gasTank.fillUp()<br>
+car["gasTank"]["contents"] //after fillUp returns 20<br>
+</code>
+</body>
+</html>
+
+
+
+
+

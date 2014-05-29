@@ -13,7 +13,8 @@ $('body').css({'background-color': 'pink'})
  
 //RELEASE 2: 
   // Add code here to modify the css and html of DOM elements
- 
+ $('h1').css({'color': 'red', 'border': 'solid black 5px'})
+
  
 //RELEASE 3: Event Listener
   // Add the code for the event listener here 

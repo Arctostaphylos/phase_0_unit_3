@@ -1,0 +1,2 @@
+The only issue I ran into with this challenge was not putting quotes around the names I wanted to add to the database. Setting up
+the tables was straightforward, but I'm curious about the possiblity of modifying tables once they are created.
